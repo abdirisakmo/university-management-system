@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\exam;
+use App\department;
 
 class examsController extends Controller
 {
@@ -25,7 +26,8 @@ class examsController extends Controller
      */
     public function create()
     {
-        return view('exams.create');
+        $departments = department::all();
+        return view('exams.create')->with('departments',$departments);
     }
 
     /**

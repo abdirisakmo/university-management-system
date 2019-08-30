@@ -7,9 +7,15 @@
             <form action="/exams" method="POST" class="form-group">
                 @csrf
                     <label for="id">Exam_ID.</label>
-                    <input type="text" name="id" id="id" class="form-control" placeholder="enter ID number " disabled           >
-                    <label for="name">Department</label>
-                    <input type="text" class="form-control" name="department" placeholder="Department" >
+                    <input type="text" name="id" id="id" class="form-control" placeholder="enter ID number " disabled>
+                            <div class="form-group">
+                              <label for="department">Department</label>
+                              <select  class="form-control" name="department" id="department">
+                                  @foreach ($departments as $department)
+                              <option >{{$department->name}}</option>
+                                  @endforeach
+                              </select>
+                    </div>
                     <label for="code">Course</label>
                     <input type="text" class="form-control" name="course" placeholder="Course " >
                     <label for="name">Type</label>

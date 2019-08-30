@@ -17,7 +17,7 @@ class CreateIncomesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('amount')->unsigned()->nullable()->default(12);
             $table->timestamps();
-            $table->mediumText('description')->nullable()->default('text');
+            $table->mediumText('description')->nullable();
         });
     }
 

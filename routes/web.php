@@ -27,6 +27,8 @@ Route::resource('/results', 'resultsController');
 Route::resource('/income', 'incomeController');
 Route::resource('/expenses', 'expensesController');
 Route::resource('/fees', 'feesController');
+Route::get('/fees/{id}/create', 'feesController@create2');
+Route::get('/payment', 'feesController@payment');
 Route::resource('/books', 'booksController');
 Route::resource('/barowbooks', 'browBooksController');
 Route::resource('/attendence', 'attendencesController');

@@ -22,6 +22,12 @@ class feesController extends Controller
         return view('fees.index', compact('fees','students'));
 
     }
+    public function payment()
+    {
+        $fees = fee::all();
+        return view('fees.report')->with('fees',$fees);
+
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +36,11 @@ class feesController extends Controller
      */
     public function create()
     {
-        //
+        return view('fees.create');
+    }
+    public function create2()
+    {
+        return view('fees.create');
     }
 
     /**
@@ -41,7 +51,33 @@ class feesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'id'=>'required',
+            'semester'=>'required',
+            'required'=>'required',
+            'amount'=>'required',
+            'balance'=>'required',
+            'discount'=>'required',
+            'add'=>'required',
+            'drop'=>'required',
+            'refund'=>'required',
+        ]);
+
+        //create department
+        $fees = new fee;
+        $fees->id = $request->input('id');
+        $fees->semester = $request->input('semester');
+        $fees->required = $request->input('required');
+        $fees->amount = $request->input('amount');
+        $fees->blance = $request->input('balance');
+        $fees->discount = $request->input('discount');
+        $fees->add = $request->input('add');
+        $fees->drop = $request->input('drop');
+        $fees->refund = $request->input('refund');
+
+        //save
+        $fees->save();
+        return redirect('/fees')->with('success','Saved Saccessfully');
     }
 
     /**
@@ -56,6 +92,8 @@ class feesController extends Controller
         $students = student::find($id);
 
         return view('fees.show', compact('fees','students'));
+
+        // return fee::find($id);
     }
 
     public function autocomplete(Request $request)

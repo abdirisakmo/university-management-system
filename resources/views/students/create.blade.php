@@ -58,7 +58,7 @@
                 </div>
  
                     <label > Address</label>
-                    <textarea id="address" cols="149" rows="4" placeholder="type your Address" name="address" ></textarea>
+                    <textarea id="address" cols="149" rows="4" class="form-control"placeholder="type your Address" name="address" ></textarea>
                     <button type="submit" class="btn btn-primary" >Save</button>
                 </form>
             </div>

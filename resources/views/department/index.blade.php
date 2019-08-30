@@ -2,13 +2,13 @@
 
 @section('content')
      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
 
 <div class="card">
 <div class="card-body">
      <h3>Departments</h3>
      <button type="submit" class="btn btn-primary float-right" ><a href="/departments/create" class="text-light"> Add Department</a></button>
-          <table id="example" class="table table-striped table-bordered" style="width:100%">
+          <table id="example" class="table table-striped table-bordered" style="width:100%" >
                     <thead>
                          <tr>
                               <th>ID</th>
@@ -44,6 +44,34 @@
                     
 </div>
 </div>
-     
-
 @endsection
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+    $('#myTable').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+} );</script>  
+

@@ -26,7 +26,7 @@ class CreateStudentsTable extends Migration
             $table->string('shift', 100)->nullable()->default('text');
             $table->string('type', 100)->nullable()->default('text');
             $table->integer('batchno')->unsigned()->nullable()->default(12);
-            $table->mediumText('address')->nullable()->default('text');
+            $table->mediumText('address')->nullable();
             $table->timestamps();
         });
     }

@@ -20,7 +20,7 @@ class CreateDepartmentsTable extends Migration
             $table->integer('code')->unsigned()->nullable()->default(12);
             $table->integer('credit')->unsigned()->nullable()->default(12);
             $table->integer('year')->unsigned()->nullable()->default(12);
-            $table->mediumText('description')->nullable()->default('text');
+            $table->mediumText('description')->nullable();
             $table->timestamps();
         });
     }

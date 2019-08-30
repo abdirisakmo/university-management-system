@@ -33,7 +33,7 @@
                     </div>
                 </div>
                     <label > Description</label>
-                    <textarea id="desc" cols="149" rows="4" placeholder="type your description" name="desc" ></textarea>
+                    <textarea id="desc" cols="149" rows="4" class="form-control" placeholder="type your description" name="desc" ></textarea>
                     <button type="submit" class="btn btn-primary" >Save</button>
                 </form>
             </div>

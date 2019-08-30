@@ -36,7 +36,8 @@
                         Registred: {{$students->created_at}} <br>
                        </div>
                        <div class="card-footer text-muted">
-                           <button type="submit" class="btn btn-primary float-left" >Make Payment</button>
+                           <button type="submit" class="btn btn-primary float-left" > <a href="/fees/{{$students->id}}/create" class="text-light">Make Payment</a> </button>
+                           <button type="submit" class="btn btn-primary float-right" > <a href="/payment" class="text-light">view payment</a> </button>
 
                        </div>
                    </div>
