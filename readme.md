@@ -1,4 +1,4 @@
-University Management System
+University Management System Developed by Abdirisak mohamud omer
 
 #instalations and use
 ```
