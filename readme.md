@@ -1,6 +1,6 @@
 University Management System Developed by Abdirisak mohamud omer
 
-#instalations and use
+# instalations and use
 ```
 $ git clone https://github.com/abdirisakmohamudomar/university-management-system.
 ```
