@@ -22,11 +22,14 @@ class feesController extends Controller
         return view('fees.index', compact('fees','students'));
 
     }
-    public function payment()
+    public function payment($id)
     {
-        $fees = fee::all();
+        // $fees = fee::find($id);
+        // return view('fees.report')->with('fees',$fees);
+        $fees=  DB::select('select * from fees where id = :id', ['id' => $id]);
         return view('fees.report')->with('fees',$fees);
 
+        //return fee::find($sid)::all();
     }
 
     /**
@@ -38,9 +41,10 @@ class feesController extends Controller
     {
         return view('fees.create');
     }
-    public function create2()
+    public function create2($id)
     {
-        return view('fees.create');
+        $students = student::find($id);
+        return view('fees.create')->with('students',$students);
     }
 
     /**
@@ -95,6 +99,15 @@ class feesController extends Controller
 
         // return fee::find($id);
     }
+    // public function show2($id)
+    // {
+    //     // $fees = fee::find($id);
+    //     // $students = student::find($id);
+
+    //     // return view('fees.show', compact('fees','students'));
+
+    //     return fee::find($id);
+    // }
 
     public function autocomplete(Request $request)
     {

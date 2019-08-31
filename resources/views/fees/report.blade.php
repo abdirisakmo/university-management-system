@@ -8,5 +8,11 @@
 </head>
 <body>
     <h1>Helllo</h1>
+
+    @foreach ($fees as $fee)
+        <ul>
+        <li>{{$fee->semester}}</li>
+        </ul>
+    @endforeach
 </body>
 </html>

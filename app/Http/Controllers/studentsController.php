@@ -15,13 +15,10 @@ class studentsController extends Controller
      */
     public function index()
     {
-        // $students= student::all();
-        //  $departments =department::all();
-        // return view('students.index')->with('students',$students);
+        $keyword=  \Request::get('search'); 
 
-         $students= student::all();
-        //  $departments =department::all();
-        return view('students.index', compact('students'));
+         $students= student::where('name', 'like', '%'.$keyword.'%' )->orWhere('id', 'like', '%'.$keyword.'%')->paginate(20);
+        return view('students.index', compact('students'))->with('i', (request()->input('page', 1) -1 )*15);;
 
         
     }

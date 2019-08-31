@@ -7,7 +7,21 @@
 <div class="card">
 <div class="card-body">
      <h3>Students</h3>
-     <a href="/students" class="btn btn-primary"  onClick="window.print()" >Print</a>
+     <a href="/students" class="btn btn-primary float-left"  onClick="window.print()" >Print</a>
+     {{-- Search form --}}
+     <form action="/students"  role="search">
+            
+          <div class="box-tools">
+            <div class="input-group float-left" style="width: 340px;">
+              <input type="text" name="search" class="form-control" placeholder="Search">
+
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </div>  
+        </form>
+     {{-- END OF SERCH --}}
      <button type="submit" class="btn btn-primary float-right" ><a href="/students/create" class="text-light"> Add student</a></button>
           <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>

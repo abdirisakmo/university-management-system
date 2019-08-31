@@ -14,7 +14,7 @@ class CreateFeesTable extends Migration
     public function up()
     {
         Schema::create('fees', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->integer('id');
             $table->string('semester', 100)->nullable()->default('text');
             $table->integer('required')->unsigned()->nullable()->default(12);
             $table->integer('amount')->unsigned()->nullable()->default(12);

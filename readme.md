@@ -1,6 +1,9 @@
 University Management System Developed by Abdirisak mohamud omer
 
 #instalations and use
+
+laravel 5.8
+
 ```
 $ git clone https://github.com/abdirisakmohamudomar/university-management-system.
 ```

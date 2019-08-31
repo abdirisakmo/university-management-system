@@ -9,7 +9,7 @@ class fee extends Model
     //table name
     protected $table='fees';
 
-    public $primary_key = 'id';
+    // public $primary_key = 'id';
 
     public  $timestamps = true;
 }

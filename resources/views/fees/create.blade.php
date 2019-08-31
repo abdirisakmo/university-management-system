@@ -9,7 +9,7 @@
 
                 <div class="form-row">
                     <div class="form-group col-12">
-                        <input type="text" class="form-control" name="id" placeholder="Enter the ID" >
+                    <input type="text" class="form-control" value="{{$students->id}}" name="id"  placeholder="Enter the ID" >
                     </div>
                 </div>
                 <div class="form-row">
