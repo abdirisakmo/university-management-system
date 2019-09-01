@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\result;
+use App\student;
+use App\department;
+use DB;
 
 class resultsController extends Controller
 {
@@ -15,17 +18,32 @@ class resultsController extends Controller
     public function index()
     {
         $results= result::all();
-        return view('results.index')->with('results',$results);
+        $students=student::all();
+        return view('results.index', compact('results','students'));
     }
 
+
+    // Gba Calculations
+    public function grade($id)
+    {
+
+        $results=  DB::select('select * from results where id = :id', ['id' => $id]);
+        $students = student::find($id);
+        return view('results.grades', compact('results','students'));
+        // return view('results.grades');
+  
+       
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('results.create');
+        $students=student::find($id);
+        $departments = department::all();
+        return view('results.create', compact('departments','students'));
     }
 
     /**
@@ -37,19 +55,19 @@ class resultsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'student_id'=>'required',
+            'id'=>'required',
             'course'=>'required',
             'attendence'=>'required',
             'assignment'=>'required',
             'midexam'=>'required',
             'finalexam'=>'required',
-            'result'=>'required'
+            'result'=>'required',
+            'grade'=>'required'
         ]);
 
         //create results
         $results = new result;
-        $results->student_id = $request->input('student_id');
-        $results->sudent_name = $request->input('name');
+        $results->id = $request->input('id');
         $results->department = $request->input('department');
         $results->course = $request->input('course');
         $results->attendence = $request->input('attendence');
@@ -57,6 +75,7 @@ class resultsController extends Controller
         $results->midexam = $request->input('midexam');
         $results->finalexam = $request->input('finalexam');
         $results->result = $request->input('result');
+        $results->grade = $request->input('grade');
 
         //save
         $results->save();
@@ -71,7 +90,10 @@ class resultsController extends Controller
      */
     public function show($id)
     {
-        //
+        $results = result::find($id);
+        $students = student::find($id);
+
+        return view('results.show', compact('results','students'));
     }
 
     /**
@@ -83,7 +105,8 @@ class resultsController extends Controller
     public function edit($id)
     {
         $results = result::find($id);
-        return view('results.edit')->with('results',$results);
+        $students = student::find($id);
+        return view('results.edit', compact('results','students'));
     }
 
     /**
@@ -96,19 +119,19 @@ class resultsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            // as
             'course'=>'required',
             'attendence'=>'required',
             'assignment'=>'required',
             'midexam'=>'required',
             'finalexam'=>'required',
-            'result'=>'required'
+            'result'=>'required',
+            'grade'=>'required'
         ]);
 
         //create results
         $results = result::find($id);
-        $results->student_id = $request->input('id');
-        $results->sudent_name = $request->input('name');
+        $students = student::find($id);
+        $students->id = $request->input('id');
         $results->department = $request->input('department');
         $results->course = $request->input('course');
         $results->attendence = $request->input('attendence');
@@ -116,6 +139,7 @@ class resultsController extends Controller
         $results->midexam = $request->input('midexam');
         $results->finalexam = $request->input('finalexam');
         $results->result = $request->input('result');
+        $results->grade = $request->input('grade');
 
         //save
         $results->save();

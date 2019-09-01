@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\fee;
 use App\student;
 use DB;
+use App\department;
 
 class feesController extends Controller
 {
@@ -24,10 +25,12 @@ class feesController extends Controller
     }
     public function payment($id)
     {
-        // $fees = fee::find($id);
-        // return view('fees.report')->with('fees',$fees);
+
         $fees=  DB::select('select * from fees where id = :id', ['id' => $id]);
-        return view('fees.report')->with('fees',$fees);
+        $students = student::find($id);
+        $departments = department::all();
+        // $fees=fee::find($id);
+        return view('fees.report', compact('fees','students','departments'));
 
         //return fee::find($sid)::all();
     }
@@ -99,15 +102,7 @@ class feesController extends Controller
 
         // return fee::find($id);
     }
-    // public function show2($id)
-    // {
-    //     // $fees = fee::find($id);
-    //     // $students = student::find($id);
 
-    //     // return view('fees.show', compact('fees','students'));
-
-    //     return fee::find($id);
-    // }
 
     public function autocomplete(Request $request)
     {

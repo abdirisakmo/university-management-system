@@ -26,9 +26,6 @@
                               @foreach ($departments as $department)
                           <option >{{$department->name}}</option>
                               @endforeach
-                              {{-- <option >nursing</option>
-                              <option >midwife</option>
-                              <option >public health</option> --}}
                           </select>
                         </div>
                     </div>

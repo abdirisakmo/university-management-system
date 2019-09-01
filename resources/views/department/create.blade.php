@@ -8,11 +8,6 @@
                 @csrf
 
                 <div class="form-row">
-                    <div class="form-group col-12">
-                        <input type="text" class="form-control" name="id" placeholder="Enter the ID" >
-                    </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group col-6">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" name="name" placeholder="department Name" >

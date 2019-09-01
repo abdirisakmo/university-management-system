@@ -7,15 +7,10 @@
             <form action="/results" method="POST" class="form-group">
                 @csrf
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-12">
                         <label for="id">ID.</label>
-                        <input type="text" name="student_id" id="student_id" class="form-control" placeholder="Enter ID number " >
+                    <input type="text" name="id" value="{{$students->id}}" id="id" class="form-control" placeholder="Enter ID number " >
                     </div>
-                       <div class="from-group col-md-6">
-                        <label for="name">Full Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Student Name">
-    
-                       </div>
                 </div>
 
                 <div class="form-row">
@@ -24,9 +19,15 @@
                     <input type="text" class="form-control" name="course" placeholder="Course " >
                  </div>
                  <div class="form-group col-md-6">
-                    <label for="code">Department</label>
-                    <input type="text" class="form-control" name="department" placeholder="Department ">
-                 </div>
+                   <div class="form-group">
+                                  <label for="department">Department</label>
+                                  <select  class="form-control" name="department" id="department">
+                                      @foreach ($departments as $department)
+                                  <option >{{$department->name}}</option>
+                                      @endforeach
+                                  </select>
+                            </div>
+                </div>
                 </div>
 
                 <div class="form-row">
@@ -47,8 +48,16 @@
                         <input type="text" class="form-control" name="finalexam" placeholder="Final Exam" >    
                     </div>
                 </div>
-                   <label for="name">Result</label>
-                    <input type="text" class="form-control" name="result" placeholder="Result" >
+                   <div class="form-row">
+                       <div class="form-group col-6">
+                            <label for="result">Result</label>
+                            <input type="text" class="form-control" name="result" placeholder="Result" >
+                       </div>
+                       <div class="form-group col-6">
+                            <label for="grade">Grade</label>
+                            <input type="text" class="form-control" name="grade" placeholder="Grade" >
+                       </div>
+                   </div>
                     <button type="submit" class="btn btn-primary" >Save</button>
                 </form>
             </div>

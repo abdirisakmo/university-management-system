@@ -8,16 +8,11 @@
                         @method('PATCH')
                     @csrf
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="id">ID.</label>
-                    <input type="text" name="id" id="student_id" value="{{$results->student_id}}" class="form-control" placeholder="Enter ID number " >
-                    </div>
-                       <div class="from-group col-md-6">
-                        <label for="name">Full Name</label>
-                       <input type="text" class="form-control" value="{{$results->sudent_name}}" name="name" placeholder="Student Name">
-    
-                       </div>
-                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="id">ID.</label>
+                                <input type="text" name="id" value="{{$students->id}}" id="id" class="form-control" placeholder="Enter ID number " >
+                                </div>
+                            </div>
 
                 <div class="form-row">
                 <div class="form-group col-md-6">
@@ -48,8 +43,17 @@
                         <input type="text" class="form-control" name="finalexam" value="{{$results->finalexam}}" placeholder="Final Exam" >    
                     </div>
                 </div>
-                   <label for="name">Result</label>
-                    <input type="text" class="form-control" name="result" value="{{$results->result}}" placeholder="Result" >
+                   <div class="form-row">
+                        <div class="form-group col-6">
+                                <label for="name">Result</label>
+                                <input type="text" class="form-control" name="result" value="{{$results->result}}" placeholder="Result" >            
+                        </div>
+                                <div class="form-group col-6">
+                                        <label for="grade">Grade</label>
+                                        <input type="text" class="form-control" value="{{$results->grade}}" name="grade" placeholder="Grade" >
+                                   </div>
+                    </div>
+                    
                     <button type="submit" class="btn btn-primary" >Save</button>
                 </form>
             </div>
