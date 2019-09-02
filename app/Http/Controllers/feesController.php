@@ -31,8 +31,6 @@ class feesController extends Controller
         $departments = department::all();
         // $fees=fee::find($id);
         return view('fees.report', compact('fees','students','departments'));
-
-        //return fee::find($sid)::all();
     }
 
     /**

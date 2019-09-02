@@ -13,16 +13,27 @@ class studentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $keyword=  \Request::get('search'); 
+        $keyword=  $request->get('search'); 
+        $from = $request->get('from');
+        $to=$request->get('to');
 
-         $students= student::where('name', 'like', '%'.$keyword.'%' )->orWhere('id', 'like', '%'.$keyword.'%')->paginate(20);
-        return view('students.index', compact('students'))->with('i', (request()->input('page', 1) -1 )*15);;
 
+        $students= student::where('name', 'like', '%'.$keyword.'%' )->get();
+        $students= student::whereBetween('created_at',[$from,$to])->get();
+        return view('students.index', compact('students'));
+        
+        // $students= student::whereBetween('created_at',[$from,$to])->get();
+        // return view('students.index', compact('students'));
         
     }
 
+    public function studentprint()
+    {
+        $students= student::all();
+        return view('students.report', compact('students'));
+    }
 
     /**
      * Show the form for creating a new resource.

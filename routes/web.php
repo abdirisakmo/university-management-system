@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::resource('/departments', 'departmentsController');
 Route::resource('/students', 'studentsController');
+Route::get('/studentprint', 'studentsController@studentprint');
 Route::resource('/courses', 'coursesController');
 Route::resource('/employees', 'employeesController');
 Route::resource('/exams', 'examsController');

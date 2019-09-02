@@ -43,7 +43,8 @@ class resultsController extends Controller
     {
         $students=student::find($id);
         $departments = department::all();
-        return view('results.create', compact('departments','students'));
+        $results = result::all();
+        return view('results.create', compact('departments','students','results'));
     }
 
     /**

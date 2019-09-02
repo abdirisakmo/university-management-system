@@ -41,11 +41,6 @@
                             <td>{{$result->result}}</td>
                             <td>{{$result->grade}}</td>
                             <td><a href="/results/{{$students->id}}/edit" class="btn btn-primary">Edit</a></td>
-                                   <td> <form action="{{ route('results.destroy', $students->id)}}" method="post">
-                                   @csrf
-                                   @method('DELETE')
-                                   <button class="btn btn-danger" type="submit">Delete</button>
-                                 </form> </td>
                         </tr>
                       @endforeach
                     </tbody>

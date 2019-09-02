@@ -51,7 +51,7 @@
                    <div class="form-row">
                        <div class="form-group col-6">
                             <label for="result">Result</label>
-                            <input type="text" class="form-control" name="result" placeholder="Result" >
+                       <input type="text" class="form-control"  name="result" placeholder="Result" >
                        </div>
                        <div class="form-group col-6">
                             <label for="grade">Grade</label>
