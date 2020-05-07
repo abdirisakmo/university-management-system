@@ -5,7 +5,7 @@
 laravel 5.8
 
 ```
-$ git clone https://github.com/abdirisakmohamudomar/university-management-system.
+$ git clone https://github.com/abdirisakmo/university-management-system.
 ```
 ```
 $ cd university-management-system
